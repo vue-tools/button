@@ -1,7 +1,7 @@
 <style src="./style.css"></style>
 <template>
-    <button :disabled="disabled" :class="btnClass" :type="btnType">
-        <span><slot></slot></span>
+    <button @click="$emit('click')" :disabled="disabled" :class="btnClass" :type="btnType">
+       <slot></slot>
     </button>
 </template>
 <script>
@@ -25,7 +25,7 @@
             },
             size: {
                 type: String,
-                default: 'default'
+                default: ''
             }
         },
         computed: {
@@ -36,7 +36,7 @@
                 } else {
                     cls.push(`vt-button--${this.type}`)
                 }
-                cls.push(`vt-button--${this.size}`)
+                this.size && cls.push(`vt-button--${this.size}`)
                 return cls
             }
         },
