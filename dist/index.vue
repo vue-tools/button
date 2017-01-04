@@ -1,7 +1,7 @@
 <style src="./style.css"></style>
 <template>
-    <button :disabled="disabled" :class="btnClass" :type="btnType">
-        <span><slot></slot></span>
+    <button @click="$emit('click')" :disabled="disabled" :class="btnClass" :type="btnType">
+        <slot></slot>
     </button>
 </template>
 <script>
@@ -25,18 +25,25 @@
             },
             size: {
                 type: String,
-                default: 'default'
+                default: ''
             }
         },
         computed: {
             btnClass(){
-                let cls = ['vt-button']
-                if(this.plain) {
-                    cls.push(`vt-button--plain-${this.type}`)
-                } else {
-                    cls.push(`vt-button--${this.type}`)
+                let cls = ['ui-button'],
+                    types = ['success', 'loading', 'info', 'warn', 'primary', 'danger'],
+                    sizes = ['small', 'large', 'mini'],
+                    {type, size} = this
+
+                if(types.includes(type)){
+                    cls.push(this.plain
+                        ? `ui-button--plain-${type}`
+                        : `ui-button--${type}`
+                    )
                 }
-                cls.push(`vt-button--${this.size}`)
+                if(size && sizes.includes(size)){
+                    cls.push(`vt-button--${size}`)
+                }
                 return cls
             }
         },
