@@ -42,7 +42,7 @@
                     )
                 }
                 if(size && sizes.includes(size)){
-                    cls.push(`vt-button--${size}`)
+                    cls.push(`ui-button--${size}`)
                 }
                 return cls
             }
