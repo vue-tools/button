@@ -35,13 +35,13 @@
                     sizes = ['small', 'large', 'mini'],
                     {type, size} = this
 
-                if(types.includes(type)){
+                if(types.indexOf(type) > -1){
                     cls.push(this.plain
                         ? `ui-button--plain-${type}`
                         : `ui-button--${type}`
                     )
                 }
-                if(size && sizes.includes(size)){
+                if(size && sizes.indexOf(size) > -1){
                     cls.push(`ui-button--${size}`)
                 }
                 return cls
