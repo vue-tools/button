@@ -7,12 +7,13 @@
         <slot></slot>
     </button>
 </template>
+
 <script>
     export default {
         props: {
             type: {
                 type: String,
-                default: 'default'
+                default: ''
             },
             htmlType: {
                 type: String,
@@ -35,12 +36,12 @@
             btnSize() {
                 let sizes = ['small', 'large', 'mini']
 
-                return ~sizes.indexOf(this.size) ? `ui-button--${this.size}` : ''
+                return this.size && ~sizes.indexOf(this.size) ? `ui-button--${this.size}` : ''
             },
             btnType() {
                 let types = ['success', 'loading', 'info', 'warn', 'primary', 'danger']
 
-                return ~types.indexOf(this.type)
+                return this.type && ~types.indexOf(this.type)
                         ? this.plain ? `ui-button--plain-${this.type}` : `ui-button--${this.type}`
                         : ''
             },
