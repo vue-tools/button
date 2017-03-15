@@ -97,7 +97,7 @@ describe('vt-button', () => {
             render(h) {
                 return (
                     <div class="button-type">
-                        <Buttons id="submit" btn-type="submit">submit button</Buttons>
+                        <Buttons id="submit" html-type="submit">submit button</Buttons>
                         <Buttons id="button">submit button</Buttons>
                     </div>
                 )

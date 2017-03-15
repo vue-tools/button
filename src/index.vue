@@ -1,6 +1,9 @@
 <style src="./style.css"></style>
 <template>
-    <button @click="$emit('click')" :disabled="disabled" :class="btnClass" :type="btnType">
+    <button @click="$emit('click')" 
+        :disabled="disabled" 
+        :class="btnClass" 
+        :type="htmlType">
         <slot></slot>
     </button>
 </template>
@@ -11,7 +14,7 @@
                 type: String,
                 default: 'default'
             },
-            btnType: {
+            htmlType: {
                 type: String,
                 default: 'button'
             },
@@ -29,24 +32,21 @@
             }
         },
         computed: {
-            btnClass(){
-                let cls = ['ui-button'],
-                    types = ['success', 'loading', 'info', 'warn', 'primary', 'danger'],
-                    sizes = ['small', 'large', 'mini'],
-                    {type, size} = this
+            btnSize() {
+                let sizes = ['small', 'large', 'mini']
 
-                if(types.indexOf(type) > -1){
-                    cls.push(this.plain
-                        ? `ui-button--plain-${type}`
-                        : `ui-button--${type}`
-                    )
-                }
-                if(size && sizes.indexOf(size) > -1){
-                    cls.push(`ui-button--${size}`)
-                }
-                return cls
+                return ~sizes.indexOf(this.size) ? `ui-button--${this.size}` : ''
+            },
+            btnType() {
+                let types = ['success', 'loading', 'info', 'warn', 'primary', 'danger']
+
+                return ~types.indexOf(this.type)
+                        ? this.plain ? `ui-button--plain-${this.type}` : `ui-button--${this.type}`
+                        : ''
+            },
+            btnClass() {
+                return ['ui-button', this.btnSize, this.btnType]
             }
-        },
-        methods: {}
+        }
     }
 </script>
