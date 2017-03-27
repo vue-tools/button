@@ -1,9 +1,6 @@
 <style src="./style.css"></style>
 <template>
-    <button @click="$emit('click')" 
-        :disabled="disabled" 
-        :class="btnClass" 
-        :type="htmlType">
+    <button @click="click" :disabled="disabled" :class="btnClass" :type="htmlType">
         <slot></slot>
     </button>
 </template>
@@ -18,10 +15,6 @@
             htmlType: {
                 type: String,
                 default: 'button'
-            },
-            plain: {
-                type: Boolean,
-                default: false
             },
             disabled: {
                 type: Boolean,
@@ -39,14 +32,17 @@
                 return this.size && ~sizes.indexOf(this.size) ? `ui-button--${this.size}` : ''
             },
             btnType() {
-                let types = ['success', 'loading', 'info', 'warn', 'primary', 'danger']
+                let types = ['success', 'loading', 'info', 'warning', 'primary', 'danger']
 
-                return this.type && ~types.indexOf(this.type)
-                        ? this.plain ? `ui-button--plain-${this.type}` : `ui-button--${this.type}`
-                        : ''
+                return this.type && ~types.indexOf(this.type) ? `ui-button--${this.type}` : ''
             },
             btnClass() {
                 return ['ui-button', this.btnSize, this.btnType]
+            }
+        },
+        methods: {
+            click(event) {
+                this.$emit('click', event)
             }
         }
     }

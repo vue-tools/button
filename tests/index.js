@@ -55,7 +55,7 @@ describe('vt-button', () => {
             render(h) {
                 return (
                     <div class="button-type">
-                        <Buttons id="warn" type="warn">warn button</Buttons>
+                        <Buttons id="warn" type="warning">warn button</Buttons>
                         <Buttons id="info" type="info">info button</Buttons>
                         <Buttons id="danger" type="danger">danger button</Buttons>
                         <Buttons id="success" type="success">success button</Buttons>
@@ -66,31 +66,10 @@ describe('vt-button', () => {
                 Buttons
             }
         }).$mount()
-        expect(vm.$el.querySelector('#warn').classList.contains('ui-button--warn')).to.equal(true)
+        expect(vm.$el.querySelector('#warn').classList.contains('ui-button--warning')).to.equal(true)
         expect(vm.$el.querySelector('#info').classList.contains('ui-button--info')).to.equal(true)
         expect(vm.$el.querySelector('#danger').classList.contains('ui-button--danger')).to.equal(true)
         expect(vm.$el.querySelector('#success').classList.contains('ui-button--success')).to.equal(true)
-    })
-    it('button plain', () => {
-        let vm = new Vue({
-            render(h) {
-                return (
-                    <div class="button-size">
-                        <Buttons plain id="warn" type="warn">warn button</Buttons>
-                        <Buttons plain id="info" type="info">info button</Buttons>
-                        <Buttons plain id="danger" type="danger">danger button</Buttons>
-                        <Buttons plain id="success" type="success">success button</Buttons>
-                    </div>
-                )
-            },
-            components: {
-                Buttons
-            }
-        }).$mount()
-        expect(vm.$el.querySelector('#warn').classList.contains('ui-button--plain-warn')).to.equal(true)
-        expect(vm.$el.querySelector('#info').classList.contains('ui-button--plain-info')).to.equal(true)
-        expect(vm.$el.querySelector('#danger').classList.contains('ui-button--plain-danger')).to.equal(true)
-        expect(vm.$el.querySelector('#success').classList.contains('ui-button--plain-success')).to.equal(true)
     })
     it('button btn type', () => {
         let vm = new Vue({
