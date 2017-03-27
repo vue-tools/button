@@ -63,7 +63,7 @@ props:
   type:
     type: String
     default: ''
-    description: 按钮的类型，可选值: <code>primary</code>，<code>success</code>，<code>loading</code>，<code>warning</code>，<code>info</code>，<code>danger</code>
+    description: 按钮的类型，可选值: ``primary``，``success``，``loading``，``warning``，``info``，``danger``
   disabled:
     type: Boolean
     default: false
@@ -71,11 +71,11 @@ props:
   size:
     type: String
     default: ''
-    description: 按钮的大小，可选值: <code>small</code>，<code>large</code> 和 <code>mini</code>
+    description: 按钮的大小，可选值: ``small``，``large`` 和 ``mini``
   htmlType:
     type: String
     default: button
-    description: 按钮原生的 Type 值，可选值: <code>button</code>，<code>submit</code> 和 <code>reset</code>
+    description: 按钮原生的 Type 值，可选值: ``button``，``submit`` 和 ``reset``
 slots:
   default:
     description: 按钮文字
