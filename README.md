@@ -59,7 +59,6 @@ export default {
 ## Interface
 
 ```interface
----
 props:
   type:
     type: String

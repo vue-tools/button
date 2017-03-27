@@ -66,7 +66,7 @@
     "codecov": "./node_modules/.bin/codecov",
     "copy": "rm -fr dist && cp -rf src dist",
     "docs": "./node_modules/.bin/vue-docs start",
-    "build:docs": "./node_modules/.bin/vue-docs build",
+    "docs:build": "./node_modules/.bin/vue-docs build",
     "compile": "npm run copy && node_modules/.bin/babel dist -d dist",
     "test": "cross-env BABEL_ENV=test ./node_modules/karma/bin/karma start ./tests/karma.conf.js"
   }
