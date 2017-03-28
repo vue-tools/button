@@ -9,6 +9,6 @@ module.exports = {
             }
         }
     },
-    vue: { dir: './docs' },
-    md: { dir: './', exclude: /node_modules/ }
+    md: { dir: './' },
+    vue: { dir: './docs' }
 }
