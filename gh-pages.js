@@ -3,7 +3,7 @@ let path = require('path')
 let ghpages = require('gh-pages')
 let homepage = require('./package.json').homepage
 let dir = path.resolve(path.join(__dirname, './build'))
-let docsConfFilePath = path.join(__dirname, './docs.conf.js')
+let docsConfFilePath = path.resolve(path.join(__dirname, './docs.conf.js'))
     
 if (fs.existsSync(docsConfFilePath)) {
     let docsConfig = require(docsConfFilePath)
