@@ -5,7 +5,7 @@ module.exports = {
     webpack: {
         resolve: {
             alias: {
-                'src': path.resolve(__dirname, 'src')
+                'vt-button': path.resolve(__dirname, 'src')
             }
         }
     },

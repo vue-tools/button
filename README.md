@@ -38,7 +38,7 @@ export default {
 </template>
 
 <script>
-    import Buttons from 'src'
+    import Buttons from 'vt-button'
 
     export default {
         methods: {
